@@ -8,9 +8,18 @@ import javax.swing.*;
 public class ScoreCalculator {
     private int numberOfTries = 3;
     private int numberOfHiddenCells;
+    private int numberOfHints = 2;
 
     public ScoreCalculator(int numberOfHiddenCells) {
         this.numberOfHiddenCells = numberOfHiddenCells;
+    }
+
+    public void decreaseNumberOfHints() {
+        numberOfHints--;
+    }
+
+    public int getNumberOfHints() {
+        return numberOfHints;
     }
 
     public void decreaseNumberOfTries() {

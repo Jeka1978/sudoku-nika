@@ -23,21 +23,25 @@ public class SudokuCell extends JTextField {
         addActionListener(e -> {
             String userChoice = e.getActionCommand();
             if (userChoice.trim().equalsIgnoreCase("h")) {
-                System.out.println(correctValue);
-                setText(String.valueOf(correctValue));
-                repaint();
+                if (scoreCalculator.getNumberOfHints() > 0) {
+                    scoreCalculator.decreaseNumberOfHints();
+                    scoreCalculator.correctAnswer();
+                    setEnabled(false);
+                    System.out.println(correctValue);
+                    setText(String.valueOf(correctValue));
+                    repaint();
+                }
                 return;
             }
             int userNumber = Integer.parseInt(userChoice);
             if (userNumber != correctValue) {
                 scoreCalculator.decreaseNumberOfTries();
-            }else {
+            } else {
                 scoreCalculator.correctAnswer();
+                setEnabled(false);
             }
         });
     }
-
-
 
 
 }

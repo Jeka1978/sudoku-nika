@@ -4,7 +4,7 @@ package com.nika;
  * @author Evgeny Borisov
  */
 public enum GameLevel {
-    EASY(3),MEDIUM(25),HARD(35);
+    EASY(5),MEDIUM(25),HARD(35);
 
 
     private final int numberOfHiddenCells;
